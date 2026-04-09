@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 🔥 GLOBAL SMOOTHNESS */
+* {
+  transition:
+    background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s ease;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #0b0f1a;
+  --foreground: #e6ecff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* BG */
+.app-bg {
+  background: #f8fafc;
+}
+
+.dark .app-bg {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}
+
+/* NEON */
+.neon:hover {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.dark .neon {
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.25);
+}
+
+.dark .neon:hover {
+  box-shadow:
+    0 0 12px rgba(59, 130, 246, 0.7),
+    0 0 24px rgba(59, 130, 246, 0.4),
+    0 0 32px rgba(59, 130, 246, 0.2);
+}
+
+/* BORDER */
+.card-border {
+  border: 1px solid #e5e7eb;
+}
+
+.dark .card-border {
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* GPU + SMOOTHNESS BOOST */
+body {
+  transform: translateZ(0);
+  will-change: transform;
+}
